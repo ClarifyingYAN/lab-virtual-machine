@@ -10,12 +10,17 @@ echo key.pub >> ./data/.ssh/authorize.key
 
 ### Build image
 
-default user name is `cyan`
++ default root password is `123456`
++ default user name is `cyan`
+
 ```bash
 docker build -t my-vm .
 
-# or use under command to change username
-docker buld -t my-vm . --build-arg user=username
+# or use under command to set other value
+docker build \
+ --build-arg user=username \
+ --build-arg root_passwd=password \
+ -t my-vm .
 ```
 
 ### Run container
@@ -34,3 +39,8 @@ docker run -d \
 > Notes:
 > 
 > May face unknown host problem, try delete record in `~/.ssh/known_hosts`
+
+## Tools
+
++ Golang
++ Conda
